@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <body>
-    <form id="labAJAJ" name="labAJAJ" method="POST" onload="cargarProvincias()">
+    <form id="labAJAJ" name="labAJAJ" method="POST">
         <div id="app">
             <h3>Provincia: </h3>
             <li v-for="item in provincias">
@@ -19,6 +19,12 @@
             <select id="select-provincias">
                <!-- <option value="0">Seleccione provincia</option> -->
                <option value="0">Selecccione</option>>
+               <script>
+                  var data="";
+                  data= '<option value="1">Seleccione...</option>';
+                  data= data + '<option value="2">TRANSPORTES MARVISUR</option>';
+                  $("#select-provincias").html(data);
+               </script>
             </select>
         </div>
 
