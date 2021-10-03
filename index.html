@@ -20,7 +20,7 @@
                <!-- <option value="0">Seleccione provincia</option> -->
                <script>
                    for (item in provincias) {
-                    document.getElementById ('select-provincias').add(new Option({{item.nombre}}, {{item.id}}));
+                    document.getElementById ('select-provincias').add(new Option('{{item.nombre}}', '1'));
                    }
                </script>
             </select>
