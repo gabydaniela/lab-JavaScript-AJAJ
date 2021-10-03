@@ -1,18 +1,12 @@
-$(document).ready(function(){
-	cargarProvincias();
-});
-
 $(function(){
 	function cargarProvincias(){
-		$.ajaj({
-			type: 'GET',
-			url: 'provincias.php',
-			dataType: "json",
-			success: cargarProvinciasPantalla()
-		});
+		var data="";
+		data= '<option value="0">Seleccione...</option>';
+		data= data + '<option value="2">TRANSPORTES MARVISUR</option>';
+		$("#select-provincias").html(data);
 	}
  
-	function cargarProvinciasPantalla(data){
+	/*function cargarProvinciasPantalla(data){
 		$('#select-provincias option').remove();
 		var list = data == null ? [] : (data.provincias instanceof Array ? data.provincias : [data.provincias]);
 		if (list.length < 1) {
@@ -39,7 +33,7 @@ $(function(){
 		});
 	}
 	$('#select-provincias').change(cargarCantones);
-	cargarCantones();
+	cargarCantones();*/
 	
 
 });
