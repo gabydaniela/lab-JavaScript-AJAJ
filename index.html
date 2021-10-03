@@ -12,17 +12,13 @@
 <body>
     <form id="labAJAJ" name="labAJAJ" method="POST" onload="cargarProvincias()">
         <div id="app">
-            <h3>Provincia: </h3>
+            <h3>Provincias: </h3>
             <li v-for="item in provincias">
                 <h2> {{ item.nombre }} </h2>
             </li>
             <select id="select-provincias">
                <!-- <option value="0">Seleccione provincia</option> -->
-               <script>
-                   for (item in provincias) {
-                    document.getElementById ('select-provincias').add(new Option('{{item.nombre}}', '1'));
-                   }
-               </script>
+               <<option value="0">{{item.nombre}}</option>>
             </select>
         </div>
 
