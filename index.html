@@ -16,9 +16,9 @@
             <li v-for="item in provincias">
                 <h2> {{ item.nombre }} </h2>
             </li>
-            <select id="select-provincias">
+            <select id="select-provincias" for="item in provincias">
                <!-- <option value="0">Seleccione provincia</option> -->
-              
+               <option value="0">{{item.nombre}}</option>>
             </select>
         </div>
 
