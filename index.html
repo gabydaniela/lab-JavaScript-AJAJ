@@ -15,6 +15,11 @@
             <h3>Provincia: </h3>
             <select id="select-provincias">
                <!-- <option value="0">Seleccione provincia</option> -->
+               <script>
+                    provinvias.forEach(function(element,index){
+                        $('#select-provincias').append('<option value="'+element+'">'+element+'</option>');
+                    });
+               </script>
             </select>
         </div>
 
@@ -25,5 +30,21 @@
             </select>
         </div>
     </form>
+
+    <!-- Agrego vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+      var labAJAJ = new Vue({
+        el: '#labAJAJ',
+        data: {
+          provinvias: []
+        },
+        created: function() {
+          fetch('provincias.php')
+            .then( response => response.json() )
+            .then( json => { this.provinvias = json } );
+        }
+      });
+    </script>
 </body>
 </html>
