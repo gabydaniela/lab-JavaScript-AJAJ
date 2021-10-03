@@ -9,3 +9,4 @@
         array('id' => 7, 'nombre' => 'Limón'),
     );
     echo json_encode($provincias);
+?>

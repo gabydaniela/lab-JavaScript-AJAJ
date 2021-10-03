@@ -7,16 +7,14 @@
     <meta name="author" content="Daniela Quesada Aguilaer"/>
     <title>Lab Javascript AJAJ</title>
     <script type="text/javascript" src="main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <form id="labAJAJ" name="labAJAJ" method="POST">
+    <form id="labAJAJ" name="labAJAJ" method="POST" onload="cargarProvincias()">
         <div>
             <h3>Provincia: </h3>
             <select id="select-provincias">
-                <option value="0">Seleccione provincia</option>
-                <option value="1">San José</option>
-                <option value="2">Alajuela</option>
+               <!-- <option value="0">Seleccione provincia</option> -->
             </select>
         </div>
 

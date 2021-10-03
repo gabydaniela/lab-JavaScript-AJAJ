@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Ejemplo Vue</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div id="app">
+        <h1> Lista de personajes </h1>
+        <hr>
+        <ul>
+          <li v-for="item in personajes">
+            <h2> {{ item.nombre }} {{ item.apellido }} </h2>
+            <div class="row">
+              <div class="col-2" v-for="item2 in item.juegos">
+                Resident evil {{ item2 }}
+              </div>
+            </div>
+            <hr>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          personajes: []
+        },
+        created: function() {
+          fetch('juegos_ajax.php')
+            .then( response => response.json() )
+            .then( json => { this.personajes = json } );
+        }
+      });
+    </script>
+  </body>
+</html>
