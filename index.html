@@ -20,10 +20,7 @@
                <!-- <option value="0">Seleccione provincia</option> -->
                <script>
                    for (item in provincias) {
-                    const option = document.createElement('option');
-                    option.value = {{item.id}};
-                    option.text = {{item.nombre}};
-                    $select.appendChild(option);
+                    document.getElementById ('select-provincias').add(new Option({{item.nombre}}, {{item.id}}));
                    }
                </script>
             </select>
