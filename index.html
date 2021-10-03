@@ -16,20 +16,18 @@
             <li v-for="item in provincias">
                 <h2> {{ item.nombre }} </h2>
             </li>
-            <select id="select-provincias">
-               <!-- <option value="0">Seleccione provincia</option> -->
-               <option value="0">Selecccione</option>>
-               <script>
-                  var data="";
-                  data= '<option value="1">Seleccione...</option>';
-                  data= data + '<option value="2">TRANSPORTES MARVISUR</option>';
-                  $("#select-provincias").html(data);
-               </script>
+            <select id="select-provincias" onchange="cargarCantones()">
+               <option value="0">Seleccione provincia</option>
+               <option value="1">San José</option>>
+               <option value="2">Alajuela</option>
             </select>
         </div>
 
         <div>
             <h3>Cantones: </h3>
+            <li v-for="item in cantones">
+              <h2> {{ item.nombre }} </h2>
+          </li>
             <select id="select-cantones" disabled>
                 <option value="0">Seleccione cantón</option>
             </select>
@@ -42,7 +40,15 @@
       var labAJAJ = new Vue({
         el: '#labAJAJ',
         data: {
-          provincias: []
+          provincias: [],
+          cantones: []
+        },
+        methods: {
+          cargarCantones: function(provincia) {
+            fetch('cantones.php', { method: 'POST', body: JSON.stringify({id: id}) })
+              .then( response => response.json() )
+              .then( json => { this.cantones = json } );
+          }
         },
         created: function() {
           fetch('provincias.php')
