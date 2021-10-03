@@ -11,8 +11,8 @@
 </head>
 <body>
     <form id="labAJAJ" name="labAJAJ" method="POST" onload="cargarProvincias()">
-        <div>
-            <h3>Provincia: </h3>
+        <div id="app">
+            <h3>Provincias: </h3>
             <li v-for="item in provincias">
                 <h2> {{ item.nombre }} {{ item.apellido }} </h2>
             </li>
@@ -33,13 +33,13 @@
     <!-- Agrego vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-      var labAJAJ = new Vue({
-        el: '#labAJAJ',
+      var app = new Vue({
+        el: '#app',
         data: {
           provincias: []
         },
         created: function() {
-          fetch('Ejemplo/provincias.php')
+          fetch('provincias.php')
             .then( response => response.json() )
             .then( json => { this.provincias = json } );
         }
