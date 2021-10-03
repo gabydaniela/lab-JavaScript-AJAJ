@@ -36,12 +36,12 @@
       var labAJAJ = new Vue({
         el: '#labAJAJ',
         data: {
-          provinvias: []
+          provincias: []
         },
         created: function() {
-          fetch('provincias.php')
+          fetch('Ejemplo/provincias.php')
             .then( response => response.json() )
-            .then( json => { this.provinvias = json } );
+            .then( json => { this.provincias = json } );
         }
       });
     </script>
