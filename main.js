@@ -27,8 +27,8 @@ asunto.addEventListener('change', () => {
   subasunto.disabled = true;
   const value = asunto.value;
   if (value) {
-    fetch(`${url}${value}`)
-      .then(result => result.json())
-      .then(json => fillSelect(value, json));
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
   }
 });
