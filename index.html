@@ -16,7 +16,7 @@
             <li v-for="item in provincias">
                 <h2> {{ item.nombre }} </h2>
             </li>
-            <select id="select-provincias" onchange="cargarCantones()">
+            <select id="select-provincias">
                <option value="0">Seleccione provincia</option>
                <option value="1">San José</option>>
                <option value="2">Alajuela</option>
@@ -44,8 +44,8 @@
           cantones: []
         },
         methods: {
-          cargarCantones: function() {
-            fetch('cantones.php', { method: 'POST', body: JSON.stringify({id: document.getElementById("producto").value}) })
+          cargarCantones: function(provincia) {
+            fetch('cantones.php', { method: 'POST', body: JSON.stringify({id: id}) })
               .then( response => response.json() )
               .then( json => { this.cantones = json } );
           }
