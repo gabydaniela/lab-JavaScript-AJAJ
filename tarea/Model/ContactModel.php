@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Modelo Contact.  Cada contact tendra:
- *      - nombre y apellidos
- *      - teléfono de la casa
- *      - teléfono del trabajo
- *      - dirección de la casa
- *      - dirección del trabajo 
- *      - dirección de correo electrónico.
- *
- */
 class ContactModel extends ADODB_Active_Record {
     public $_table = 'eb25247_contacts';
 
@@ -23,15 +13,33 @@ class ContactModel extends ADODB_Active_Record {
         // Obtener todos los registros:
         $contacts = $GLOBALS['db']->GetActiveRecords('eb25247_contacts');
 
+		return $this->contacts;
+	}
 
-		$this->libro = array();
-		$archivo = fopen('visitas.txt', 'r');
-		while($registro = fgets($archivo))
-		{
-			$visita = explode(':', $registro);
-			$this->libro[] = new VisitaModel($visita[0], $visita[1], $visita[3]);
-		} // while
-		fclose($archivo);
-		return $this->libro;
+	function borra($id) {
+		// Borrar un registro:
+		$contact = new ContactModel();
+		$contact->load('id=3');
+		$contact->delete();
+	}
+
+	function edita(DirectionModel $direccion) {
+		// Modificar y guardar un registro:
+		$contact = new ContactModel();
+		$contact->load($direccion->id);
+		$contact->nombre = $direccion->nombre;
+		$contact->apellido = $direccion->apellido;
+		$contact->telCasa = $direccion->telCasa;
+		$contact->dirCasa = $direccion->dirCasa;
+		$contact->telTrabajo = $direccion->telTrabajo;
+		$contact->dirTrabajo = $direccion->dirTrabajo;
+		$contact->correo = $direccion->correo;
+		$contact->save();
+	}
+
+	function agregar(DirectionModel $direccion) {
+		$contact = new ContactModel();
+		$contact->insert($direccion);
+		$contact->save();
 	}
 }
